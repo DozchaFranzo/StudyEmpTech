@@ -120,12 +120,18 @@ cursor:pointer;
 /* REVEAL */
 
 .reveal{
-opacity:0;
-transform:translateY(40px);
+opacity:1;
+transform:translateY(0);
 transition:0.8s ease;
 }
 
-.reveal.active{
+/* When JS adds active class */
+.reveal.animate{
+opacity:0;
+transform:translateY(40px);
+}
+
+.reveal.animate.active{
 opacity:1;
 transform:translateY(0);
 }
