@@ -1,21 +1,35 @@
+/* ========================= */
+/* ROOT VARIABLES */
+/* ========================= */
 :root {
-  --bg-light: linear-gradient(135deg, #f5f7fa, #e4e8f0);
-  --text-light: #1a1a1a;
-  --glass-light: rgba(255, 255, 255, 0.5);
+  --bg-light: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+  --bg-dark: linear-gradient(135deg, #0f0f0f, #1a1a1a);
 
-  --bg-dark: linear-gradient(135deg, #141414, #1f1f1f);
-  --text-dark: #f5f5f5;
+  --text-light: #111;
+  --text-dark: #ffffff;
+
+  --glass-light: rgba(255, 255, 255, 0.6);
   --glass-dark: rgba(255, 255, 255, 0.05);
 }
 
-body {
+/* ========================= */
+/* GLOBAL RESET */
+/* ========================= */
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+body {
   background: var(--bg-light);
   color: var(--text-light);
-  transition: all 0.4s ease;
   min-height: 100vh;
-  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 body.dark {
@@ -23,27 +37,27 @@ body.dark {
   color: var(--text-dark);
 }
 
-/* Subtle animated gradient overlay */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 30%, rgba(200,200,255,0.15), transparent 60%);
-  animation: floatBg 15s infinite alternate ease-in-out;
-  z-index: -1;
-}
-
-@keyframes floatBg {
-  from { transform: translate(0,0); }
-  to { transform: translate(-10%, -10%); }
-}
-
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 8%;
+  backdrop-filter: blur(15px);
+  background: var(--glass-light);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+body.dark nav {
+  background: var(--glass-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 nav ul {
@@ -52,59 +66,50 @@ nav ul {
   list-style: none;
 }
 
-nav a {
+nav ul li a {
   text-decoration: none;
   color: inherit;
   font-weight: 500;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: currentColor;
   transition: 0.3s;
 }
 
-nav a:hover::after {
-  width: 100%;
+nav ul li a:hover {
+  opacity: 0.6;
 }
 
 .toggle {
+  background: none;
   border: none;
-  padding: 8px 14px;
-  border-radius: 10px;
+  font-size: 18px;
   cursor: pointer;
-  background: #222;
-  color: white;
 }
 
+/* ========================= */
+/* HERO */
+/* ========================= */
 .hero {
+  padding: 120px 8% 80px;
   text-align: center;
-  padding: 120px 20px 80px 20px;
+}
+
+.hero.small {
+  padding: 80px 8% 40px;
 }
 
 .hero h1 {
-  font-size: 42px;
-  font-weight: 600;
-  letter-spacing: -1px;
+  font-size: 40px;
+  margin-bottom: 15px;
 }
 
+.hero p {
+  opacity: 0.7;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
 .content {
-  padding: 60px 10%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  padding: 60px 8%;
 }
 
 .card {
@@ -112,103 +117,89 @@ nav a:hover::after {
   border-radius: 20px;
   backdrop-filter: blur(15px);
   background: var(--glass-light);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-  transition: 0.4s ease;
 }
 
 body.dark .card {
   background: var(--glass-dark);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.motivation-box {
-  margin-top: 60px;
-  text-align: center;
-}
-
-button {
-  padding: 12px 26px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  background: #111;
-  color: white;
-  transition: 0.3s;
-}
-
-button:hover {
-  opacity: 0.85;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  opacity: 0.6;
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.member-list {
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
+/* ========================= */
+/* TEAM GRID */
+/* ========================= */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
   margin-top: 40px;
 }
 
 .team-card {
   text-align: center;
-  padding: 25px;
+  padding: 30px;
   border-radius: 20px;
   backdrop-filter: blur(15px);
   background: var(--glass-light);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   transition: 0.4s ease;
 }
 
 body.dark .team-card {
   background: var(--glass-dark);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .team-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
+  border-radius: 50%;
   margin-bottom: 15px;
-  border: 3px solid rgba(255,255,255,0.4);
+  border: 3px solid rgba(255,255,255,0.3);
+  transition: 0.3s ease;
 }
 
 .team-card:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-10px);
+}
+
+.team-card:hover img {
+  transform: scale(1.08);
 }
 
 .leader {
-  box-shadow: 0 0 30px rgba(100, 150, 255, 0.4);
+  border: 1px solid #7c9cff;
+  box-shadow: 0 0 25px rgba(124,156,255,0.4);
 }
 
 .role {
   opacity: 0.7;
   font-size: 14px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+footer {
+  text-align: center;
+  padding: 30px 8%;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* SCROLL REVEAL */
+/* ========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
