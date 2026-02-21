@@ -30,6 +30,10 @@ function revealOnScroll(){
 
 const elements=document.querySelectorAll(".reveal");
 
+elements.forEach(el=>{
+el.classList.add("animate");
+});
+
 const observer=new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
