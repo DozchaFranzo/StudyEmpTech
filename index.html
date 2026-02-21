@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyEmpTech</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Overcoming Academic Stress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<h1>StudyEmpTech</h1>
 <nav>
-<a href="#home">Home</a>
-<a href="#strategies">Strategies</a>
-<a href="#about">About</a>
-<button onclick="toggleDarkMode()">🌙</button>
+  <div class="logo">Academic Balance</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="strategies.html">Strategies</a></li>
+    <li><a href="credits.html">Credits</a></li>
+  </ul>
+  <button class="toggle" onclick="toggleDarkMode()">🌙</button>
 </nav>
+
+<header class="hero">
+  <h1 class="reveal">Overcoming Academic Stress</h1>
+  <p class="reveal">Build discipline. Protect your peace. Stay strong.</p>
 </header>
 
-<section id="home" class="hero">
-<h2>Empowering Students Through Technology</h2>
-<p>
-StudyEmpTech helps students improve their academic performance by
-using effective study strategies and modern technology tools.
-</p>
-<button onclick="showMotivation()">Get Motivation</button>
-<p id="motivationText" class="motivation"></p>
+<section class="content">
+  <h2 class="reveal">Understanding Academic Stress</h2>
+  <p class="reveal">
+    Academic stress is the pressure students experience due to exams,
+    deadlines, expectations, and responsibilities.
+  </p>
+
+  <div class="card-grid">
+    <div class="card reveal">
+      <h3>Workload</h3>
+      <p>Heavy academic tasks and deadlines create pressure.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Sleep Deprivation</h3>
+      <p>Lack of sleep reduces focus and emotional control.</p>
+    </div>
+    <div class="card reveal">
+      <h3>High Expectations</h3>
+      <p>External and self-pressure increase anxiety.</p>
+    </div>
+  </div>
 </section>
 
-<section id="strategies" class="content">
-<h2>Study Strategies</h2>
-
-<div class="card">
-<h3>Time Management</h3>
-<p>Use planners and scheduling apps to organize your daily tasks efficiently.</p>
+<div class="motivation-box">
+  <p id="motivationText">Your daily motivation will appear here!</p>
+  <button onclick="showMotivation()">Show Motivation</button>
 </div>
-
-<div class="card">
-<h3>Active Learning</h3>
-<p>Engage with content through quizzes, flashcards, and group discussions.</p>
-</div>
-
-<div class="card">
-<h3>Digital Tools</h3>
-<p>Leverage apps like note-taking software and online research platforms.</p>
-</div>
-
-</section>
-
-<section id="about" class="content">
-<h2>About This Website</h2>
-<p>
-This website was created as a project to demonstrate how educational
-technology can enhance students' study habits and academic success.
-</p>
-<p class="credits">Created by Dozcha Franzo</p>
-</section>
 
 <footer>
-<p>© 2026 StudyEmpTech | All Rights Reserved</p>
+  <p>Progress > Perfection</p>
 </footer>
 
 <script src="script.js"></script>
